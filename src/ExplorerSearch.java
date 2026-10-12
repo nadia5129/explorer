@@ -32,6 +32,9 @@ public class ExplorerSearch {
         // Implement your method here!
         // Please also make more test cases
         // I STRONGLY RECOMMEND testing some helpers you might make too
-        return -1;
+
+        //find starting location
+        int [] start = explorerLocation(island);
+        
     }
 }
