@@ -37,6 +37,70 @@ public class ExplorerSearch {
         int [] start = explorerLocation(island);
         boolean[][] visited = new boolean[island.length][island[0].length];
 
+       public static int reachableArea(
+        int[][] island,
+        boolean[][] visited,
+        int[] current) {
+            int curR = current[0];
+            int curC =current[1];
+
+            if(visited[curR][curC]){
+                return 0;
+            }
+
+            visited[curR][curC] = true;
+            int count =1;
+        }
+
+        public static List<int[]> possibleMoves(int[][] island, int[] current) {
+        int curR = current[0];
+        int curC = current[1];
+
+        int newR, newC;
+        List<int[]> possible = new ArrayList<>();
+
+        // up
+        newR = curR - 1;
+        newC = curC;
+        if (newR >= 0 &&
+            island[newR][newC] != 2 &&
+            island[newR][newC] != 3) {
+
+            possible.add(new int[]{newR, newC});
+        }
+
+        //down
+        newR = curR + 1;
+        newC = curC;
+        if (newR < island.length &&
+        island[newR][newC] != 2 &&
+        island[newR][newC] != 3) {
+        possible.add(new int[]{newR, newC});
+        }
+
+        //left 
+        newR = curR;
+        newC = curC -1;
+        if(newC >= 0 && island[newR][newC] != 2 &&
+            island[newR][newC] != 3){
+            possible.add(new int[]{newR, newC});
+        
+        //right
+        newR = curR;
+        newC = curC + 1;
+        if(newC < island[newR].length && island[newR][newC] != 2 &&
+            island[newR][newC] != 3){
+            possible.add(new int []{newR, newC});
+        }
+          return possible;
+  
+    }
+
+        
+
+            
+        }
+
 
     //helper method
     public static int[] explorerLocation(int[][] island){
@@ -47,6 +111,7 @@ public class ExplorerSearch {
             }
         }
     }
-    
+    throw new IllegalArgumentException("no explorer");
+
 }
 }
