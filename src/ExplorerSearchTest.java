@@ -17,7 +17,7 @@ public class ExplorerSearchTest {
 
     // Add more tests here!
     // Come up with varied cases
-       @Test
+    @Test
     public void testReachableArea_oneReachable() {
         int[][] island = {
             {3,3,3},
@@ -27,6 +27,30 @@ public class ExplorerSearchTest {
         int actual = ExplorerSearch.reachableArea(island);
         assertEquals(1, actual);
     }
+
+    @Test
+    public void testReachableArea_fewReachable() {
+        int[][] island = {
+            {3,0,3},
+            {3,1,3},
+            {1,1,3}
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(4, actual);
+    }
+
+    @Test
+    public void testReachableArea_allReachable() {
+    int[][] island = {
+        {0,1,1},
+        {1,1,1},
+        {1,1,1}
+    };
+
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(9, actual);
+    }
+    
 
 
 }
