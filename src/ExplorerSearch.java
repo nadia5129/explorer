@@ -37,6 +37,9 @@ public class ExplorerSearch {
         int [] start = explorerLocation(island);
         boolean[][] visited = new boolean[island.length][island[0].length];
 
+         return reachableArea(island, visited, start);
+    }
+
         //method overloader
        public static int reachableArea(
         int[][] island,
@@ -53,13 +56,10 @@ public class ExplorerSearch {
             int count =1;
 
             List<int[]>neighbors = possibleMoves(island, current);
-            for(int neighbor : neighbors){
+            for(int[] neighbor : neighbors){
                 count = count + reachableArea(island, visited, neighbor);
                 }
                 return count;
-
-            
-      
         }
 
 
@@ -96,6 +96,7 @@ public class ExplorerSearch {
         if(newC >= 0 && island[newR][newC] != 2 &&
             island[newR][newC] != 3){
             possible.add(new int[]{newR, newC});
+        }
         
         //right
         newR = curR;
@@ -107,7 +108,6 @@ public class ExplorerSearch {
           return possible;
   
     }    
-        }
 
 
     //helper method
