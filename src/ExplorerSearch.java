@@ -35,6 +35,18 @@ public class ExplorerSearch {
 
         //find starting location
         int [] start = explorerLocation(island);
-        
+        boolean[][] visited = new boolean[island.length][island[0].length];
+
+
+    //helper method
+    public static int[] explorerLocation(int[][] island){
+    for(int row =0; row < island.length; row++){
+        for(int column =0; column < island[row].length; column++){
+            if(island[row][column] == 0){
+                return new int[]{row, column};
+            }
+        }
     }
+    
+}
 }
